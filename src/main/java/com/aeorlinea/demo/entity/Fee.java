@@ -7,4 +7,6 @@ import jakarta.persistence.Id;
 public class Fee {
     @Id
     private int id;
+
+    private String nombre;
 }
