@@ -9,4 +9,8 @@ public class Fee {
     private int id;
 
     private String nombre;
+
+    private double costo;
+    private String descripcion;
+    private double precioAsistenMedic;
 }
