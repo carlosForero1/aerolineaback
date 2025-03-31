@@ -6,14 +6,16 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
 public class Fly implements Serializable {
     @Id
     private int id;
-    private Date startDate;
-    private Date endDate;
+    private LocalDate  startDate;
+    private LocalDate  endDate;
+
 
     @ManyToOne
     @JoinColumn(name = "city_id")
@@ -21,7 +23,7 @@ public class Fly implements Serializable {
     public Fly() {
     }
 
-    public Fly(int id, Date startDate, Date endDate) {
+    public Fly(int id, LocalDate  startDate, LocalDate endDate) {
         this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -35,19 +37,19 @@ public class Fly implements Serializable {
         this.id = id;
     }
 
-    public Date getStartDate() {
+    public LocalDate  getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate  startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDate  getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDate  endDate) {
         this.endDate = endDate;
     }
 
@@ -58,6 +60,7 @@ public class Fly implements Serializable {
     public void setCity(City city) {
         this.city = city;
     }
+
 
     @Override
     public String toString() {

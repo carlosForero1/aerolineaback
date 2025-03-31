@@ -1,13 +1,13 @@
 package com.aeorlinea.demo.controller;
 
-import com.aeorlinea.demo.entity.City;
 import com.aeorlinea.demo.entity.Fly;
-import com.aeorlinea.demo.service.CityService;
 import com.aeorlinea.demo.service.FlyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -45,4 +45,26 @@ public class FlyController {
         }
         return ResponseEntity.notFound().build();
     }
-}
+
+    @GetMapping("/available")
+    public List<Fly> getAvailableFlights(@RequestParam Integer id, @RequestParam String destiny,@RequestParam LocalDate StartDate){
+        List<Fly> result= new ArrayList<>();
+        String mensaje = "No hay Viajes disponibles";
+        List<Fly> flies = service.getAllFly();
+
+        for(Fly fly: flies ) {
+            if (fly.getCity().getId() == id){
+                if (fly.getStartDate().equals(StartDate)){
+                    if (fly.getCity().getDestiny().equals(destiny)){
+                        result.add(fly);
+                    }
+                }
+            }
+        }
+            return result;
+        }
+
+    }
+
+
+

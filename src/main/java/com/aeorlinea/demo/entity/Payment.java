@@ -7,4 +7,6 @@ import jakarta.persistence.Id;
 public class Payment {
     @Id
     private int id;
+
+    private double precio;
 }
