@@ -13,6 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/Fly")
+@CrossOrigin(origins = "http://localhost:5173")
 public class FlyController {
     @Autowired
     private FlyService service;
