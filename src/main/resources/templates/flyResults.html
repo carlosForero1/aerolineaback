@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Resultados de Vuelos</title>
+</head>
+<body>
+<h1>Resultados de Vuelos</h1>
+<div th:if="${vuelos == null}">
+  <p>Por favor, ingrese los criterios de búsqueda.</p>
+</div>
+<div th:if="${vuelos != null and vuelos.empty}">
+  <p>No se encontraron vuelos disponibles.</p>
+</div>
+<div th:if="${vuelos != null and !vuelos.empty}">
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Origen</th>
+      <th>Destino</th>
+      <th>Fecha</th>
+      <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="vuelo : ${vuelos}">
+      <td th:text="${vuelo.id}"></td>
+      <td th:text="${vuelo.city.name}"></td>
+      <td th:text="${vuelo.city.destiny}"></td>
+      <td th:text="${vuelo.startDate}"></td>
+      <td>
+        <a th:href="@{/fly/{id}/tarifas(id=${vuelo.id})}">Seleccionar Tarifa</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<br>
+<a th:href="@{/city}">Lista de Ciudades</a>
+</body>
+</html>

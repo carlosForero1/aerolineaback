@@ -48,7 +48,7 @@ public class FlyController {
     }
 
     @GetMapping("/available")
-    public List<Fly> getAvailableFlights(@RequestParam Integer id, @RequestParam String destiny,@RequestParam LocalDate StartDate){
+    public List<Fly> getAvailableFlights(@RequestParam Integer id, @RequestParam int destiny,@RequestParam LocalDate StartDate){
         List<Fly> result= new ArrayList<>();
         String mensaje = "No hay Viajes disponibles";
         List<Fly> flies = service.getAllFly();
@@ -56,7 +56,7 @@ public class FlyController {
         for(Fly fly: flies ) {
             if (fly.getCity().getId() == id){
                 if (fly.getStartDate().equals(StartDate)){
-                    if (fly.getCity().getDestiny().equals(destiny)){
+                    if (fly.getCity().getDestiny() == (destiny)){
                         result.add(fly);
                     }
                 }

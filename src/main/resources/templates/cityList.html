@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Ciudades</title>
+</head>
+<body>
+<h1>Lista de Ciudades</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Destino</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="city : ${cities}">
+        <td th:text="${city.id}"></td>
+        <td th:text="${city.name}"></td>
+        <td th:text="${city.destiny}"></td>
+        <td>
+            <a th:href="@{/city/{id}(id=${city.id})}">Detalles</a>
+            <a th:href="@{/city/delete/{id}(id=${city.id})}">Eliminar</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/city/create}">Crear Nueva Ciudad</a>
+<br>
+<a th:href="@{/fly/search}">Buscar Vuelos</a>
+</body>
+</html>

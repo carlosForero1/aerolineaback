@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Seleccionar Tarifa</title>
+</head>
+<body>
+<h1>Seleccionar Tarifa para el Vuelo</h1>
+<p th:text="'Vuelo ID: ' + ${vuelo.id}"></p>
+<p th:text="'Origen: ' + ${vuelo.city.name}"></p>
+<p th:text="'Destino: ' + ${vuelo.city.destiny}"></p>
+<p th:text="'Fecha: ' + ${vuelo.startDate}"></p>
+
+<form action="#" th:action="@{/fly/{id}/tarifas(id=${vuelo.id})}" method="post">
+    <label for="tarifaId">Seleccione una Tarifa:</label>
+    <select name="tarifaId" id="tarifaId">
+        <option th:each="tarifa : ${tarifas}" th:value="${tarifa.id}" th:text="${tarifa.description}"></option>
+    </select>
+    <button type="submit">Seleccionar Tarifa</button>
+</form>
+</body>
+</html>

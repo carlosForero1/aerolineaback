@@ -10,13 +10,13 @@ public class City implements Serializable {
     @Id
     private int id;
     private String name;
-    private String destiny;
+    private Integer destiny;
     private double distance;
 
     public City() {
     }
 
-    public City(int id, String name, String destiny, double distance) {
+    public City(int id, String name, int destiny, double distance) {
         this.id = id;
         this.name = name;
         this.destiny = destiny;
@@ -35,11 +35,11 @@ public class City implements Serializable {
         this.name = name;
     }
 
-    public String getDestiny() {
+    public int getDestiny() {
         return destiny;
     }
 
-    public void setDestiny(String destiny) {
+    public void setDestiny(int destiny) {
         this.destiny = destiny;
     }
 
