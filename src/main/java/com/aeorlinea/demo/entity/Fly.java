@@ -15,8 +15,6 @@ public class Fly implements Serializable {
     private int id;
     private LocalDate  startDate;
     private LocalDate  endDate;
-
-
     @ManyToOne
     @JoinColumn(name = "city_id")
     private City city;

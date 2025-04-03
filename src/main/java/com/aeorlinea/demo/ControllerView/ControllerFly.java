@@ -69,7 +69,7 @@ public class ControllerFly {
     }
     @GetMapping("/search")
     public String showFlySearchForm() {
-        return "flySearch"; // Nombre de la vista Thymeleaf
+        return "flySearch";
     }
 
 
@@ -95,7 +95,6 @@ public class ControllerFly {
 
     @PostMapping("/{id}/tarifas")
     public String processFeeSelection(@PathVariable("id") int flyId, @RequestParam("tarifaId") int tarifaId, Model model) {
-        // Aquí puedes agregar la lógica para guardar la selección de la tarifa
         model.addAttribute("message", "Tarifa seleccionada y guardada.");
         return "guardado"; // Crea una vista "guardado.html"
     }

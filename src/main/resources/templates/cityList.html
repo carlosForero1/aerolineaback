@@ -19,14 +19,10 @@
         <td th:text="${city.id}"></td>
         <td th:text="${city.name}"></td>
         <td th:text="${city.destiny}"></td>
-        <td>
-            <a th:href="@{/city/{id}(id=${city.id})}">Detalles</a>
-            <a th:href="@{/city/delete/{id}(id=${city.id})}">Eliminar</a>
-        </td>
+
     </tr>
     </tbody>
 </table>
-<a th:href="@{/city/create}">Crear Nueva Ciudad</a>
 <br>
 <a th:href="@{/fly/search}">Buscar Vuelos</a>
 </body>

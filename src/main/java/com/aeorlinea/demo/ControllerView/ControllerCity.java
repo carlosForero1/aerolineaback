@@ -43,12 +43,12 @@ public class ControllerCity {
     @PostMapping("/create")
     public String createCity(@ModelAttribute City city) {
         cityService.saveCity(city);
-        return "redirect:/city"; // Redirige a la lista de ciudades
+        return "redirect:/city";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteCity(@PathVariable int id) {
         cityService.deleteCity(id);
-        return "redirect:/city"; // Redirige a la lista de ciudades
+        return "redirect:/city";
     }
 }
